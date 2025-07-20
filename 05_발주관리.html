@@ -1,0 +1,246 @@
+<!-- @pageTitle 상품주문 요청내역 -->
+<!-- @pageCreated 2025-07-19 -->
+<!-- @pageUpdated 2025-07-19 -->
+<!-- @pageNote 상품주문 요청내역 페이지 -->
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1200">
+    <title>KP&T Technology - 상품주문 요청내역</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- jQuery UI CSS -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <!-- jQuery UI JS -->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <link rel="stylesheet" as="style" href="./font/pretendard-gov-subset.css" />
+  <script type="module" src="./assets/js/main.js"></script>
+  <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+
+<body>
+
+    <div id="wrap">
+        <header id="header" class="header">
+                    <div class="contaienr header-inner">
+                        <div class="header-logo">
+                            <a href="/">
+                                <span class="visually-hidden">KP&T Technology</span>
+                            </a>
+                        </div>
+                        <div class="header-content">
+                            <div class="user-info-bar">
+                                <div class="user-info-item">
+                                    <i class="icon-user"></i>
+                                    <span>김남호</span>
+                                </div>
+                                <div class="user-info-item">
+                                    <i class="icon-document"></i>
+                                    <span>AAB솔루션 구매팀</span>
+                                </div>
+                                <div class="user-info-item">
+                                    <i class="icon-calendar"></i>
+                                    <span>최근 구매일: 2024-10-21</span>
+                                </div>
+                                <div class="user-info-item">
+                                    <i class="icon-clipboard"></i>
+                                    <span>분야: 임상병리, 일반독성, 유전독성</span>
+                                </div>
+                                <div class="user-info-item">
+                                    <i class="icon-cart"></i>
+                                    <a href="#" class="link-blue">상품주문내역</a>
+                                </div>
+                                <div class="user-info-item">
+                                    <i class="icon-logout"></i>
+                                    <a href="#" class="link-logout">로그아웃</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                </header>
+        <div class="main-wrap">
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">구매관리</a></li>
+                    <li class="current"><a href="#">발주관리</a></li>
+                    <li><a href="#">제고관리</a></li>
+                    <li><a href="#">기기벨리데이션</a></li>
+                </ul>
+            </nav>
+            <!-- //main-nav -->
+            
+            <div class="main-content">
+                <div class="column">
+                    
+                    <div class="cloumn-header">
+                        <h1>발주관리</h1>
+                    </div>
+                    <!-- 발주관리 -->
+                    <div class="search-section">
+                        <div class="search-form">
+                            <div class="search-row">
+                                <div class="search-field">
+                                    <label>발주번호</label>
+                                    <input type="text" placeholder="">
+                                </div>
+                                <div class="search-field">
+                                    <label>상품명</label>
+                                    <input type="text" placeholder="">
+                                </div>
+                                <div class="search-field">
+                                    <label>발주일자</label>
+                                    <input type="text" class="datepicker" placeholder="">
+                                </div>
+                                <div class="search-field">
+                                    <label>진행상황</label>
+                                    <select name="" id="">
+                                        <option value="주문요청" selected>주문요청</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="search-actions top">
+                                <button class="btn-search">
+                                    <i class="icon-search"></i>
+                                    검색
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-management">
+                        <div class="order-management-section">
+                            <div class="table-wrap">
+                                <table class="table-style-1">
+                                    <thead>
+                                        <tr>
+                                            <th>발주번호</th>
+                                            <th>발주대수</th>
+                                            <th>발주일자</th>
+                                            <th>입고창고</th>
+                                            <th>진행상황</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>2506-D-0001</td>
+                                            <td>1</td>
+                                            <td>2025-06-02</td>
+                                            <td>부평창고</td>
+                                            <td>상품주문</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2506-D-0001</td>
+                                            <td>1</td>
+                                            <td>2025-06-02</td>
+                                            <td>부평창고</td>
+                                            <td>상품주문</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <nav class="paging">
+                                <div class="paging-container">
+                                    <div class="paging-controls">
+                                        <button class="btn-first-page"><span class="visually-hidden">첫페이지</span></button>
+                                        <div class="page-numbers">
+                                            <button class="page-number active">1</button>
+                                            <button class="page-number">2</button>
+                                            <button class="page-number">3</button>
+                                            <button class="page-number">4</button>
+                                            <button class="page-number">5</button>
+                                            <span class="page-ellipsis">..24</span>
+                                        </div>
+                                        <button class="btn-next-page"><span class="visually-hidden">다음</span></button>
+                                    </div>
+                                    <div class="items-per-page">
+                                        <select class="items-select">
+                                            <option value="10">10/page</option>
+                                            <option value="20" selected>20/page</option>
+                                            <option value="50">50/page</option>
+                                            <option value="100">100/page</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                        <!-- //order-management-section -->
+                        <div class="order-management-section">
+                            <div class="cloumn-header">
+                                <h1>상품정보</h1>
+                            </div>
+                            <div class="table-wrap">
+                                <table class="table-style-1">
+                                    <thead>
+                                        <tr>
+                                            <th>발주번호</th>
+                                            <th>상품번호</th>
+                                            <th>상품명</th>
+                                            <th>규격</th>
+                                            <th>단위</th>
+                                            <th>재고</th>
+                                            <th>주문수량</th>
+                                            <th>납품차수</th>
+                                            <th>납품예정일</th>
+                                            <th>납품수량</th>
+                                            <th>잔량</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>2506-D-0001</td>
+                                            <td>D.A01-002</td>
+                                            <td>*Cofactor-I</td>
+                                            <td>10mL*10ea</td>
+                                            <td>bag</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>0</td>
+                                            <td>2025-06-10</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <nav class="paging">
+                                <div class="paging-container">
+                                    <div class="paging-controls">
+                                        <button class="btn-first-page"><span class="visually-hidden">첫페이지</span></button>
+                                        <div class="page-numbers">
+                                            <button class="page-number active">1</button>
+                                            <button class="page-number">2</button>
+                                            <button class="page-number">3</button>
+                                            <button class="page-number">4</button>
+                                            <button class="page-number">5</button>
+                                            <span class="page-ellipsis">..24</span>
+                                        </div>
+                                        <button class="btn-next-page"><span class="visually-hidden">다음</span></button>
+                                    </div>
+                                    <div class="items-per-page">
+                                        <select class="items-select">
+                                            <option value="10">10/page</option>
+                                            <option value="20" selected>20/page</option>
+                                            <option value="50">50/page</option>
+                                            <option value="100">100/page</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                        <!-- //order-management-section -->
+                        
+                    </div>
+                     
+
+
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- //wrap -->
+
+</body>
+
+</html>

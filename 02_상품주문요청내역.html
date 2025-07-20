@@ -1,0 +1,246 @@
+<!-- @pageTitle 상품주문 요청내역 -->
+<!-- @pageCreated 2025-07-19 -->
+<!-- @pageUpdated 2025-07-19 -->
+<!-- @pageNote 상품주문 요청내역 페이지 -->
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1200">
+    <title>KP&T Technology - 상품주문 요청내역</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- jQuery UI CSS -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <!-- jQuery UI JS -->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <link rel="stylesheet" as="style" href="./font/pretendard-gov-subset.css" />
+  <script type="module" src="./assets/js/main.js"></script>
+  <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+
+<body>
+
+    <div id="wrap">
+        <header id="header" class="header">
+                    <div class="contaienr header-inner">
+                        <div class="header-logo">
+                            <a href="/">
+                                <span class="visually-hidden">KP&T Technology</span>
+                            </a>
+                        </div>
+                        <div class="header-content">
+                            <div class="user-info-bar">
+                                <div class="user-info-item">
+                                    <i class="icon-user"></i>
+                                    <span>김남호</span>
+                                </div>
+                                <div class="user-info-item">
+                                    <i class="icon-document"></i>
+                                    <span>AAB솔루션 구매팀</span>
+                                </div>
+                                <div class="user-info-item">
+                                    <i class="icon-calendar"></i>
+                                    <span>최근 구매일: 2024-10-21</span>
+                                </div>
+                                <div class="user-info-item">
+                                    <i class="icon-clipboard"></i>
+                                    <span>분야: 임상병리, 일반독성, 유전독성</span>
+                                </div>
+                                <div class="user-info-item">
+                                    <i class="icon-cart"></i>
+                                    <a href="#" class="link-blue">상품주문내역</a>
+                                </div>
+                                <div class="user-info-item">
+                                    <i class="icon-logout"></i>
+                                    <a href="#" class="link-logout">로그아웃</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                </header>
+        <div class="main-wrap">
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">구매관리</a></li>
+                    <li class="current"><a href="#">발주관리</a></li>
+                    <li><a href="#">제고관리</a></li>
+                    <li><a href="#">기기벨리데이션</a></li>
+                </ul>
+            </nav>
+            <!-- //main-nav -->
+            
+            <div class="main-content">
+                <div class="column">
+                    <!-- 검색 섹션 -->
+                    <div class="search-section">
+                    <div class="search-form">
+                        <div class="search-row">
+                            <div class="search-field">
+                                <label>구매번호</label>
+                                <input type="text" placeholder="">
+                            </div>
+                            <div class="search-field">
+                                <label>견적번호</label>
+                                <input type="text" placeholder="">
+                            </div>
+                            <div class="search-field">
+                                <label>발주번호</label>
+                                <input type="text" placeholder="">
+                            </div>
+                        </div>
+                        <div class="search-row">
+                            <div class="search-field">
+                                <label>상품명</label>
+                                <input type="text" placeholder="">
+                            </div>
+                            <div class="search-field">
+                                <label>주문일자</label>
+                                <input type="text" class="datepicker">
+                            </div>
+                            <div class="search-field">
+                                <label>진행상황</label>
+                                <select>
+                                    <option value="주문요청" selected>주문요청</option>
+                                </select>
+                            </div>
+                            <div class="search-actions">
+                                <button class="btn-search">
+                                    <i class="icon-search"></i>
+                                    검색
+                                </button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    </div>
+                    <!-- //search-form -->
+
+                    <!-- 주문정보 -->
+                    <div class="order-history">
+                        <div class="order-history-top"><span>주문정보</span></div>
+                        <div class="order-history-content">
+                            <div class="order-number">
+                                <div class="order-number-label">구매번호 </div>
+                                <div class="order-number-value">2506-B-0001</div>
+                            </div>
+                            <div class="order-info">
+                                <dl>
+                                    <dt>상품정보</dt>
+                                    <dd>Coflactor-외 3개</dd>
+                                    <dt>주문금액</dt>
+                                    <dd>1,016,000원</dd>
+                                    <dt>주문수량</dt>
+                                    <dd>4개</dd>
+                                    <dt>주문일시</dt>
+                                    <dd>2025-06-02 10:00</dd>
+                                </dl>
+                            </div>
+                            <div class="order-status">
+                                <ol class="order-status-list">
+                                    <li class="order-status-item current">상품주문</li>
+                                    <li class="order-status-item">견적요청</li>
+                                    <li class="order-status-item">접수/등록</li>
+                                    <li class="order-status-item">승인/미승인</li>
+                                    <li class="order-status-item">발주요청</li>
+                                    <li class="order-status-item">납품완료</li>
+                                    <li class="order-status-item">입고완료</li>
+                                </ol>
+                            </div>
+                            <div class="order-status-spec">
+                                <div class="order-status-spec-item">
+                                    <button class="btn-spec">주문정보</button>
+                                </div>
+                                <div class="order-status-spec-item">
+                                    <button class="btn-spec">견적서</button>
+                                </div>
+                                <div class="order-status-spec-item">
+                                    <button class="btn-spec">접수서</button>
+                                </div>
+                                <div class="order-status-spec-item">
+                                    <button class="btn-spec">미승인</button>
+                                </div>
+                                <div class="order-status-spec-item">
+                                    <button class="btn-spec">발주서</button>
+                                </div>
+                                <div class="order-status-spec-item">
+                                    <button class="btn-spec">납품서</button>
+                                </div>
+                                <div class="order-status-spec-item">
+                                    <button class="btn-spec">입고완료</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-history-content">
+                            <div class="order-number">
+                                <div class="order-number-label">구매번호</div>
+                                <div class="order-number-value text-error">2506-B-0001</div>
+                            </div>
+                            <div class="order-info">
+                                <dl>
+                                    <dt>상품정보</dt>
+                                    <dd>Coflactor-외 3개</dd>
+                                    <dt>주문금액</dt>
+                                    <dd>1,016,000원</dd>
+                                    <dt>주문수량</dt>
+                                    <dd>4개</dd>
+                                    <dt>주문일시</dt>
+                                    <dd>2025-06-02 10:00</dd>
+                                    <dt>반려일시</dt>
+                                    <dd class="text-error">2025-06-02 10:00</dd>
+                                </dl>
+                                <div class="order-info-error">
+                                    <dl>
+                                        <dt>반려사유</dt>
+                                        <dd class="text-error">제고 충분하여 구매 불필요</dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="order-status">
+                                <ol class="order-status-list">
+                                    <li class="order-status-item current">상품주문</li>
+                                    <li class="order-status-item">견적요청</li>
+                                    <li class="order-status-item">접수/등록</li>
+                                    <li class="order-status-item">승인/미승인</li>
+                                    <li class="order-status-item">발주요청</li>
+                                    <li class="order-status-item">납품완료</li>
+                                    <li class="order-status-item">입고완료</li>
+                                </ol>
+                            </div>
+                            <div class="order-status-spec">
+                                <div class="order-status-spec-item">
+                                    <button class="btn-spec">주문정보</button>
+                                </div>
+                                <div class="order-status-spec-item">
+                                    <button class="btn-spec">견적서</button>
+                                </div>
+                                <div class="order-status-spec-item">
+                                    <button class="btn-spec">접수서</button>
+                                </div>
+                                <div class="order-status-spec-item">
+                                    <button class="btn-spec">미승인</button>
+                                </div>
+                                <div class="order-status-spec-item">
+                                    <button class="btn-spec">발주서</button>
+                                </div>
+                                <div class="order-status-spec-item">
+                                    <button class="btn-spec">납품서</button>
+                                </div>
+                                <div class="order-status-spec-item">
+                                    <button class="btn-spec">입고완료</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- //wrap -->
+
+</body>
+
+</html>

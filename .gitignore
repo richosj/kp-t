@@ -2,7 +2,7 @@
 node_modules/
 
 # 빌드 결과물
-dist/
+# dist/
 build/
 
 # OS/IDE 관련 파일

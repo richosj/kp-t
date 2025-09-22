@@ -1,0 +1,618 @@
+<!-- @pageTitle 상품주문 요청내역 -->
+<!-- @pageCreated 2025-07-19 -->
+<!-- @pageUpdated 2025-07-19 -->
+<!-- @pageNote 상품주문 요청내역 페이지 -->
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1200">
+    <title>KP&T Technology - 상품주문 요청내역</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- jQuery UI CSS -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <!-- jQuery UI JS -->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <link rel="stylesheet" as="style" href="./font/pretendard-gov-subset.css" />
+  <script type="module" src="./assets/js/main.js"></script>
+  <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+
+<body>
+
+    <div id="wrap">
+        <header id="header" class="header">
+                    <div class="contaienr header-inner">
+                        <div class="header-logo">
+                            <a href="/">
+                                <span class="visually-hidden">KP&T Technology</span>
+                            </a>
+                        </div>
+                        <div class="header-content">
+                            <div class="user-info-bar">
+                                <div class="user-info-item">
+                                    <i class="icon-user"></i>
+                                    <span>김남호</span>
+                                </div>
+                                <div class="user-info-item">
+                                    <i class="icon-document"></i>
+                                    <span>AAB솔루션 구매팀</span>
+                                </div>
+                                <div class="user-info-item">
+                                    <i class="icon-calendar"></i>
+                                    <span>최근 구매일: 2024-10-21</span>
+                                </div>
+                                <div class="user-info-item">
+                                    <i class="icon-clipboard"></i>
+                                    <span>분야: 임상병리, 일반독성, 유전독성</span>
+                                </div>
+                                <div class="user-info-item">
+                                    <i class="icon-cart"></i>
+                                    <a href="#" class="link-blue">상품주문내역</a>
+                                </div>
+                                <div class="user-info-item">
+                                    <i class="icon-logout"></i>
+                                    <a href="#" class="link-logout">로그아웃</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                </header>
+        <div class="main-wrap">
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">구매관리</a></li>
+                    <li class="current"><a href="#">발주관리</a></li>
+                    <li><a href="#">제고관리</a></li>
+                    <li><a href="#">기기벨리데이션</a></li>
+                </ul>
+            </nav>
+            <!-- //main-nav -->
+
+            <div class="main-content">
+                <div class="column">
+
+                    <div class="cloumn-header">
+                        <h1>팝업모음
+                            <p>inline style 지우면 가운대.</p>
+                            <p>class="show" 추가하면 보여짐.</p>
+                            <p>modal은 고정 그 안에만 변경</p>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="modal show" style="display: block;position: static;transform: none;">
+                    <div class="modal-content" style="width: 900px;">
+                        <div class="modal-header">
+                            <h2>상품검색</h2>
+                            <div class="modal-header-util">
+                                <button class="btn-outline-danger">상품담기</button>
+                                <button class="btn-outline-primary">닫기</button>
+                            </div>
+                        </div>
+
+                        <div class="modal-body">
+                            <div class="table-wrap">
+                                <table class="table-style-1">
+                                    <thead>
+                                        <tr>
+                                            <th>선택</th>
+                                            <th>카테고리</th>
+                                            <th>상품번호</th>
+                                            <th>상품명</th>
+                                            <th>규격</th>
+                                            <th>제고</th>
+                                            <th>삼품금액</th>
+                                            <th>CasNo.</th>
+                                            <th>수량</th>
+                                            <th>상세보기</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <label class="label-checkbox">
+                                                    <input type="checkbox" name="" id="">
+                                                    <span></span>
+                                                </label>
+                                            </td>
+                                            <td>시약/임상병리</td>
+                                            <td>cau-526</td>
+                                            <td>Bim Antibody (H-5)</td>
+                                            <td>200ug</td>
+                                            <td>100</td>
+                                            <td>508,000원</td>
+                                            <td>SC-37435</td>
+                                            <td>
+                                                <div class="quantity-control">
+                                                    <button class="qty-btn minus">-</button>
+                                                    <input type="text" value="10" class="qty-input">
+                                                    <button class="qty-btn plus">+</button>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn-secondary">상세보기</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <div class="item-controls">
+                                <button class="btn-outline-primary">상품추가 <i class="icon-plus"></i></button>
+                                <button class="btn-outline-primary">상품삭제 <i class="icon-minus"></i></button>
+                            </div>
+
+                            <div class="search-section">
+                                <div class="search-form">
+                                    <div class="search-row">
+                                        <div class="search-field">
+                                            <label>상품검색</label>
+                                            <input type="text" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="search-row">
+                                        <div class="search-field">
+                                            <label>대분류</label>
+                                            <input type="text" placeholder="">
+                                        </div>
+                                        <div class="search-field">
+                                            <label>중분류</label>
+                                            <input type="text" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="search-actions" style="top:0;right:8rem">
+                                        <button class="btn-search"><i class="icon-search"></i>검색</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="table-wrap">
+                                <table class="table-style-1">
+                                    <thead>
+                                        <tr>
+                                            <th>선택</th>
+                                            <th>카테고리</th>
+                                            <th>상품번호</th>
+                                            <th>상품명</th>
+                                            <th>규격</th>
+                                            <th>제고</th>
+                                            <th>삼품금액</th>
+                                            <th>CasNo.</th>
+                                            <th>상세보기</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <label class="label-checkbox">
+                                                    <input type="checkbox" name="" id="">
+                                                    <span></span>
+                                                </label>
+                                            </td>
+                                            <td>시약/임상병리</td>
+                                            <td>cau-526</td>
+                                            <td>Bim Antibody (H-5)</td>
+                                            <td>200ug</td>
+                                            <td>100</td>
+                                            <td>508,000원</td>
+                                            <td>SC-37435</td>
+                                            <td>
+                                                <button type="button" class="btn-secondary">상세보기</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+                <!-- // 상품 검색 -->
+                <br>
+                <div class="modal show" style="display: block;position: static;transform: none;">
+                    <div class="modal-content" style="width: 900px;">
+                        <div class="modal-header">
+                            <h2>상품 상세보기</h2>
+                        </div>
+                        <div class="modal-body">
+                            <div class="table-wrap">
+                                <table class="table-style-2">
+                                    <tbody>
+                                        <tr>
+                                            <th>상품번호</th>
+                                            <td>DD.A01-002</td>
+                                            <th>상품명</th>
+                                            <td>*Cofactor-I</td>
+                                            <th>규격</th>
+                                            <td>200ug</td>
+                                        </tr>
+                                        <tr>
+                                            <th>단위</th>
+                                            <td>ea</td>
+                                            <th>카테고리</th>
+                                            <td colspan="3">시약/임상병리</td>
+                                        </tr>
+                                        <tr>
+                                            <th>제조사</th>
+                                            <td>삼성</td>
+                                            <th>브랜드</th>
+                                            <td colspan="3">삼성</td>
+                                        </tr>
+                                        <tr>
+                                            <th>CasNo</th>
+                                            <td>SC-37435</td>
+                                            <th>가격</th>
+                                            <td colspan="3">508,000원</td>
+                                        </tr>
+                                        <tr>
+                                            <th colspan="6">제품사진</th>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="6">
+                                                사진영역
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn-outline-primary">닫기</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- // 상품 상세보기 -->
+                <br>
+                <div class="modal show" style="display: block;position: static;transform: none;">
+                    <div class="modal-content" style="width: 900px;">
+                        <div class="modal-header">
+                            <h2>상품 주문 반려</h2>
+                            <div class="modal-header-util">
+                                <span class="order-number">구매번호 2506-E-0001</span>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="table-wrap">
+                                <table class="table-style-1">
+                                    <thead>
+                                        <tr>
+                                            <th>고객분류</th>
+                                            <th>상품번호</th>
+                                            <th>상품명</th>
+                                            <th>규격</th>
+                                            <th>단위</th>
+                                            <th>제고</th>
+                                            <th>주문수량</th>
+                                            <th>소비자가</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>시약/임상병리</td>
+                                            <td>cau-526</td>
+                                            <td>Bim Antibody (H-5)</td>
+                                            <td>200ug</td>
+                                            <td>bag</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>208,000원</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="payment-approval-section mt-10">
+                                <div class="payment-summary">
+                                    <div class="total-products">
+                                        총 상품수 <span class="count">2</span>개
+                                    </div>
+                                    <div class="total-amount">
+                                        총 상품금액 <span class="amount">1,230,000</span>원
+                                    </div>
+                                </div>
+                                
+                                <div class="rejection-reason-section">
+                                    <div class="reason-label">반려 사유</div>
+                                    <div class="reason-input">
+                                        <input type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn-outline-danger">반려</button>
+                                <button class="btn-outline-primary">닫기</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- // 상품 주문반려 -->
+                <br>
+                <div class="modal show" style="display: block;position: static;transform: none;">
+                    <div class="modal-content" style="width: 900px;">
+                        <div class="modal-header">
+                            <h2>발주상품 목록</h2>
+                            <div class="modal-header-util">
+                                <button class="btn-outline-danger">상품담기</button>
+                                <button class="btn-outline-primary">닫기</button>
+                            </div>
+                        </div>
+
+                        <div class="modal-body">
+                            <div class="table-wrap">
+                                <table class="table-style-1">
+                                    <thead>
+                                        <tr>
+                                            <th>선택</th>
+                                            <th>카테고리</th>
+                                            <th>상품번호</th>
+                                            <th>상품명</th>
+                                            <th>규격</th>
+                                            <th>제고</th>
+                                            <th>삼품금액</th>
+                                            <th>CasNo.</th>
+                                            <th>수량</th>
+                                            <th>상세보기</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <label class="label-checkbox">
+                                                    <input type="checkbox" name="" id="">
+                                                    <span></span>
+                                                </label>
+                                            </td>
+                                            <td>시약/임상병리</td>
+                                            <td>cau-526</td>
+                                            <td>Bim Antibody (H-5)</td>
+                                            <td>200ug</td>
+                                            <td>100</td>
+                                            <td>508,000원</td>
+                                            <td>SC-37435</td>
+                                            <td>
+                                                <div class="quantity-control">
+                                                    <button class="qty-btn minus">-</button>
+                                                    <input type="text" value="10" class="qty-input">
+                                                    <button class="qty-btn plus">+</button>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn-secondary">상세보기</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <div class="item-controls">
+                                <button class="btn-outline-primary">상품추가 <i class="icon-plus"></i></button>
+                                <button class="btn-outline-primary">상품삭제 <i class="icon-minus"></i></button>
+                            </div>
+
+                            <div class="search-section">
+                                <div class="search-form">
+                                    <div class="search-row">
+                                        <div class="search-field">
+                                            <label>상품검색</label>
+                                            <input type="text" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="search-row">
+                                        <div class="search-field">
+                                            <label>대분류</label>
+                                            <input type="text" placeholder="">
+                                        </div>
+                                        <div class="search-field">
+                                            <label>중분류</label>
+                                            <input type="text" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="search-actions" style="top:0;right:8rem">
+                                        <button class="btn-search"><i class="icon-search"></i>검색</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="table-wrap">
+                                <table class="table-style-1">
+                                    <thead>
+                                        <tr>
+                                            <th>선택</th>
+                                            <th>카테고리</th>
+                                            <th>상품번호</th>
+                                            <th>상품명</th>
+                                            <th>규격</th>
+                                            <th>제고</th>
+                                            <th>삼품금액</th>
+                                            <th>CasNo.</th>
+                                            <th>상세보기</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <label class="label-checkbox">
+                                                    <input type="checkbox" name="" id="">
+                                                    <span></span>
+                                                </label>
+                                            </td>
+                                            <td>시약/임상병리</td>
+                                            <td>cau-526</td>
+                                            <td>Bim Antibody (H-5)</td>
+                                            <td>200ug</td>
+                                            <td>100</td>
+                                            <td>508,000원</td>
+                                            <td>SC-37435</td>
+                                            <td>
+                                                <button type="button" class="btn-secondary">상세보기</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+                <!-- // 발주상품 목록-->
+                <br>
+
+                <div class="modal show" style="display: block;position: static;transform: none;">
+                    <div class="modal-content" style="width: 900px;">
+                        <div class="modal-header">
+                            <h2>상품주문 결제</h2>
+                            <div class="modal-header-util">
+                                <span class="order-number">견적번호 2506-E-0001</span>
+                            </div>
+                        </div>
+
+                        <div class="modal-body">
+                            <div class="table-wrap">
+                                <table class="table-style-1">
+                                    <thead>
+                                        <tr>
+                                            <th>고객분류</th>
+                                            <th>상품번호</th>
+                                            <th>상품명</th>
+                                            <th>규격</th>
+                                            <th>재고</th>
+                                            <th>주문수량</th>
+                                            <th>주문금액</th>
+                                            <th>견적금액</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>시약/임상병리</td>
+                                            <td>cau-526</td>
+                                            <td>Bim Antibody (H-5)</td>
+                                            <td>200ug</td>
+                                            <td>100</td>
+                                            <td>1</td>
+                                            <td>208,000원</td>
+                                            <td>208,000원</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="payment-approval-section">
+                                <div class="payment-summary">
+                                    <div class="total-products">
+                                        총 상품수 <span class="count">2</span>개
+                                    </div>
+                                    <div class="total-amount">
+                                        총 상품금액 <span class="amount">1,230,000</span>원
+                                    </div>
+                                </div>
+                                
+                                <div class="payment-approval-controls">
+                                    <div class="approval-label">결제</div>
+                                    <div class="approval-options">
+                                        <div class="radio-group">
+                                            <input type="radio" id="approve" name="payment-status" checked>
+                                            <label for="approve">승인</label>
+                                        </div>
+                                        <div class="radio-group">
+                                            <input type="radio" id="reject" name="payment-status">
+                                            <label for="reject">미승인</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="rejection-reason-section">
+                                    <div class="reason-label">미승인 사유</div>
+                                    <div class="reason-input">
+                                        <input type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="modal-footer">
+                                <button class="btn-outline-danger">결제하기</button>
+                                <button class="btn-outline-primary">닫기</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- // 상품주문 결제 -->
+                <br>
+                <div class="modal show" style="display: block;position: static;transform: none;">
+                    <div class="modal-content" style="width: 900px;">
+                        <div class="modal-header">
+                            <h2>주문정보</h2>
+                            <div class="modal-header-util">
+                                <span class="order-number">견적번호 2506-E-0001</span>
+                            </div>
+                        </div>
+
+                        <div class="modal-body">
+                            <!-- 상품 상세 정보 및 수량 조절 -->
+                            <div class="product-detail-section">
+                                <div class="breadcrumb">
+                                    기기> 조직병리
+                                </div>
+                                
+                                <div class="product-info">
+                                    <div class="product-header">
+                                        <div class="product-details">
+                                            <div class="product-info-1">
+                                                <div class="product-code">D.A01-002</div>
+                                                <div class="product-name">*Cofactor-I</div>
+                                                <div class="product-price">1,016,000원</div>
+                                            </div>
+                                            <div class="product-info-2">
+                                                <div class="product-spec">10mL*10ea</div>
+                                                <div class="product-type">oriental yeast bag</div>
+                                            </div>
+                                        </div>
+                                        <div class="progress-link">
+                                            진행상황-상품정보
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="quantity-section">
+                                        <div class="quantity-label">수량</div>
+                                        <div class="quantity-control">
+                                            <button class="qty-btn">-</button>
+                                            <input type="text" class="qty-input" value="0">
+                                            <button class="qty-btn">+</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="order-amount-section">
+                                        <div class="amount-label">주문금액</div>
+                                        <div class="amount-value">11,000<em>원</em></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- // 상품 상세 정보 및 수량 조절 -->
+
+                            
+                            <div class="modal-footer">
+                                <button class="btn-outline-danger">상품수량 수정</button>
+                                <button class="btn-outline-primary">상품주문 취소</button>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+                <!-- // 주문정보 -->
+
+            </div>
+        </div>
+
+    </div>
+    <!-- //wrap -->
+
+</body>
+
+</html>

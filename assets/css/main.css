@@ -7,7 +7,7 @@
   --desktop: 1024px;
   --lg-desktop: 1440px;
   /* Container max-widths */
-  --container: 1200px;
+  --container: 1500px;
   /* Typography */
   --font-family-primary: "Pretendard GOV Variable", "Pretendard GOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }

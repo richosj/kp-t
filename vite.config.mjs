@@ -1,17 +1,26 @@
-import glob from 'fast-glob'
-import fs from 'fs'
-import path from 'path'
-import { defineConfig, loadEnv } from 'vite'
-import handlebars from 'vite-plugin-handlebars'
+import handlebars from '@yoichiro/vite-plugin-handlebars'; // 기존 플러그인용
+import glob from 'fast-glob';
+import fs from 'fs';
+import handlebarsLib from 'handlebars'; // partial 직접 등록용
+import path from 'path';
+import { defineConfig, loadEnv } from 'vite';
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
-
   const basePath = './'
-
   const pagesPath = path.resolve(__dirname, 'src')
+  const partialsPath = path.resolve(__dirname, 'src/partials')
+
+  // partial 수동 등록
+  const partialFiles = fs.readdirSync(partialsPath).filter(f => f.endsWith('.hbs'))
+  partialFiles.forEach(file => {
+    const name = path.basename(file, '.hbs')
+    const content = fs.readFileSync(path.join(partialsPath, file), 'utf-8')
+    handlebarsLib.registerPartial(name, content)
+  })
+
   const pageFiles = fs.readdirSync(pagesPath)
-    .filter(file => file.endsWith('.html') && file !== 'link-page.html')
+    .filter(file => file.endsWith('.html') && file !== 'index.html')
 
   const pageMetaList = pageFiles.map(file => {
     const filePath = path.join(pagesPath, file)
@@ -86,13 +95,14 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [
       handlebars({
-        partialDirectory: [
-          path.resolve(__dirname, 'src/partials'),
-          path.resolve(__dirname, 'src/components'),
+        // partialsDir 옵션은 그대로 유지해도 무방
+        partialsDir: [
+          partialsPath,
         ],
-      
-        context: {
-          pages: pageMetaList
+        transformIndexHtmlOptions: {
+          context: {
+            pages: pageMetaList
+          }
         }
       }),
       {
@@ -113,9 +123,9 @@ export default defineConfig(({ mode }) => {
         closeBundle() {
           const distPath = path.resolve(__dirname, 'dist')
           if (!fs.existsSync(distPath)) return
-      
+
           const htmlFiles = fs.readdirSync(distPath).filter(f => f.endsWith('.html'))
-      
+
           htmlFiles.forEach(file => {
             const filePath = path.join(distPath, file)
             let content = fs.readFileSync(filePath, 'utf-8')
@@ -123,10 +133,9 @@ export default defineConfig(({ mode }) => {
             content = content.replace(/<link rel="modulepreload" [^>]+?>/g, '')
             fs.writeFileSync(filePath, content)
           })
-      
+
           console.log('✅ 빌드 후 modulepreload & crossorigin 제거 완료')
         }
-      
       }
     ]
   }

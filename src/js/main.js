@@ -1,243 +1,152 @@
 import '@/scss/main.scss';
 
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, ScrollSmoother);
-// ScrollSmoother.create({
-//   smooth: 1,
-//   effect: true,
-// });
 
-// var smoothscroll = {
-//   passive: function passive() {
-//     var supportsPassive = false;
-//     try {
-//       document.addEventListener('test', null, {
-//         get passive() {
-//           supportsPassive = true;
-//         }
-//       });
-//     } catch (e) {}
-//     return supportsPassive;
-//   },
-//   init: function init() {
-//     var userAgent = navigator.userAgent.toLowerCase();
-//     var isMobile = /iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(userAgent);
-//     var isMac = /macintosh|mac os x/i.test(userAgent);
-//     var isWindows = /windows/i.test(userAgent);
-//     var isLinux = /linux/i.test(userAgent);
-//     if (isMobile || isMac) return;
+// Main JavaScript functionality
 
-//     //if (document.documentElement.classList.contains('mobile') || document.documentElement.classList.contains('mac')) return;
+document.addEventListener('DOMContentLoaded', function() {
 
-//     if (this.passive()) {
-//       window.addEventListener('wheel', this.scrolling, {
-//         passive: false
-//       });
-//     } else {
-//       window.addEventListener('mousewheel', this.scrolling);
-//       window.addEventListener('DOMMouseScroll', this.scrolling);
-//     }
-//   },
-//   destroy: function destroy() {
-//     if (this.passive()) {
-//       window.removeEventListener('wheel', this.scrolling);
-//     } else {
-//       window.removeEventListener('mousewheel', this.scrolling);
-//       window.removeEventListener('DOMMouseScroll', this.scrolling);
-//     }
-//     gsap.killTweensOf(window, {
-//       scrollTo: true
-//     });
-//   },
-//   scrolling: function scrolling(event) {
-//     event.preventDefault();
-//     var scrollTime = 1;
-//     var distanceOffset = 2.5;
-//     var scrollDistance = window.innerHeight / distanceOffset;
-//     var delta = 0;
-//     if (smoothscroll.passive()) {
-//       delta = event.wheelDelta / 120 || -event.deltaY / 3;
-//     } else {
-//       if (typeof event.originalEvent.deltaY != 'undefined') {
-//         delta = -event.originalEvent.deltaY / 120;
-//       } else {
-//         delta = event.originalEvent.wheelDelta / 120 || -event.originalEvent.detail / 3;
-//       }
-//     }
-//     var scrollTop = document.documentElement.scrollTop;
-//     var finalScroll = scrollTop - parseInt(delta * scrollDistance);
-//     gsap.to(window, {
-//       duration: scrollTime,
-//       scrollTo: {
-//         y: finalScroll,
-//         autoKill: true
-//       },
-//       ease: 'power3.out',
-//       overwrite: 5
-//     });
-//   }
-// };
-
-// smoothscroll.init();
-
-
-const body = document.querySelector('body');
-
-const nav = document.querySelector('.nav');
-const mobileMenu = document.querySelector('.mobile-menu');
-const mobileMenuClose = document.querySelector('.mobile-menu-close');
-
-
-mobileMenu.addEventListener('click', () => {
-  body.classList.add('nav-open');
-});
-
-mobileMenuClose.addEventListener('click', () => {
-  body.classList.remove('nav-open');
-});
-
-
-
-
-const openApplyBtn = document.querySelector('.apply-s-btn button');
-const openApply = document.querySelector('.open-apply');
-const openApplys = document.querySelector('.open-applys');
-const applyClose = document.querySelector('.apply__close');
-
-openApplys.addEventListener('click', (e) => {
-  e.preventDefault();
-  body.classList.toggle('apply-open');
-});
-
-// 참가신청 버튼 클릭 시 참가신청 모달 창 열기
-openApplyBtn.addEventListener('click', () => {
-    body.classList.toggle('apply-open');
-});
-
-applyClose.addEventListener('click', () => {
-  body.classList.remove('apply-open');
-});
-
-const btnTop = document.querySelector("#btnTop");
-
-const applyBtn = document.querySelector(".open-apply");
-const footer = document.querySelector(".footer");
-
-// DOM이 완전히 로드된 후 ScrollTrigger 실행
-window.addEventListener('DOMContentLoaded', () => {
-  const scrollMoving = document.querySelector('.scroll-move');
-  if(scrollMoving){
-  window.addEventListener('scroll', () => {
     
-    if(window.scrollY > 100) {
-      scrollMoving.classList.add('hidden');
-    } else {
-      scrollMoving.classList.remove('hidden');
-    }
-  })
-  }
-
-  // btnTop 스크롤 기능
-  if (btnTop) {
-    // 초기 상태 설정 (숨김)
-    gsap.set(btnTop, { opacity: 0, y: 50, pointerEvents: 'none' });
-
-    ScrollTrigger.create({
-      trigger: 'body',
-      start: 'top top',
-      end: 'bottom bottom',
-      onUpdate: (self) => {
-        if (self.progress > 0.1) { // 10% 스크롤 후 나타남
-          gsap.to(btnTop, {
-            opacity: 1,
-            y: 0,
-            duration: 0.3,
-            pointerEvents: 'auto'
-          });
-        } else {
-          gsap.to(btnTop, {
-            opacity: 0,
-            y: 50,
-            duration: 0.3,
-            pointerEvents: 'none'
-          });
+    $(".datepicker").datepicker({
+    dateFormat: "yy-mm-dd",
+    dayNames: ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"], // 주 전체 이름
+    dayNamesMin: ["일", "월", "화", "수", "목", "금", "토"], // 축약 이름(헤더)
+    monthNames: ["1월", "2월", "3월", "4월", "5월", "6월",
+                    "7월", "8월", "9월", "10월", "11월", "12월"], // 월 이름
+    monthNamesShort: ["1월", "2월", "3월", "4월", "5월", "6월",
+                        "7월", "8월", "9월", "10월", "11월", "12월"], // 축약 월 이름
+    prevText: "이전",
+    nextText: "다음",
+    currentText: "오늘",
+    closeText: "닫기",
+    changeMonth: true,
+    changeYear: true,
+    showMonthAfterYear: true, // 년 뒤에 월 표시
+    yearSuffix: "년"
+    });
+    
+    
+    // Quantity control functionality
+    const quantityControls = document.querySelectorAll('.quantity-control');
+    
+    quantityControls.forEach(control => {
+        const minusBtn = control.querySelector('.minus');
+        const plusBtn = control.querySelector('.plus');
+        const input = control.querySelector('.qty-input');
+        
+        minusBtn.addEventListener('click', () => {
+            let value = parseInt(input.value);
+            if (value > 1) {
+                input.value = value - 1;
+                //updateTotalPrice();
+            }
+        });
+        
+        plusBtn.addEventListener('click', () => {
+            let value = parseInt(input.value);
+            input.value = value + 1;
+            //updateTotalPrice();
+        });
+        
+        //input.addEventListener('change', updateTotalPrice);
+    });
+    
+    // Toggle functionality for progress items
+    // const toggleBtns = document.querySelectorAll('.toggle-btn');
+    
+    // toggleBtns.forEach(btn => {
+    //     btn.addEventListener('click', function() {
+    //         const progressItem = this.closest('.progress-item');
+    //         const details = progressItem.querySelector('.item-details');
+            
+    //         if (progressItem.classList.contains('expanded')) {
+    //             progressItem.classList.remove('expanded');
+    //             progressItem.classList.add('collapsed');
+    //             //this.textContent = '▶';
+    //         } else {
+    //             progressItem.classList.remove('collapsed');
+    //             progressItem.classList.add('expanded');
+    //             //this.textContent = '▼';
+    //         }
+    //     });
+    // });
+    
+    // Tab functionality for order info cards
+    const tabs = document.querySelectorAll('.tab');
+    
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            const tabContainer = this.closest('.order-tabs');
+            const allTabs = tabContainer.querySelectorAll('.tab');
+            
+            // Remove active class from all tabs
+            allTabs.forEach(t => t.classList.remove('active'));
+            
+            // Add active class to clicked tab
+            this.classList.add('active');
+        });
+    });
+    
+    // Search functionality
+    // const searchBtn = document.querySelector('.btn-search');
+    // if (searchBtn) {
+    //     searchBtn.addEventListener('click', function() {
+    //         // Search logic here
+    //         console.log('Search button clicked');
+    //         // You can add actual search functionality here
+    //     });
+    // }
+    
+    // Product search button
+    // const productSearchBtn = document.querySelector('.product-search-btn');
+    // if (productSearchBtn) {
+    //     productSearchBtn.addEventListener('click', function() {
+    //         console.log('Product search button clicked');
+    //         // Add product search modal or redirect logic
+    //     });
+    // }
+    
+    // Order button
+    // const orderBtn = document.querySelector('.btn-order');
+    // if (orderBtn) {
+    //     orderBtn.addEventListener('click', function() {
+    //         const checkedProducts = document.querySelectorAll('.product-checkbox:checked');
+    //         if (checkedProducts.length === 0) {
+    //             alert('주문할 상품을 선택해주세요.');
+    //             return;
+    //         }
+    //         console.log('Order button clicked');
+    //         // Add order submission logic
+    //     });
+    // }
+    
+    // Update total price function
+    function updateTotalPrice() {
+        const checkboxes = document.querySelectorAll('.product-checkbox:checked');
+        let total = 0;
+        
+        checkboxes.forEach(checkbox => {
+            const row = checkbox.closest('tr');
+            const priceText = row.querySelector('.product-price').textContent;
+            const quantity = parseInt(row.querySelector('.qty-input').value);
+            const price = parseInt(priceText.replace(/[^\d]/g, ''));
+            
+            total += price * quantity;
+        });
+        
+        const totalElement = document.querySelector('.total-amount');
+        if (totalElement) {
+            totalElement.textContent = total.toLocaleString() + '원';
         }
-      }
-    });
-
-    // btnTop 클릭 시 맨 위로 스크롤
-    btnTop.addEventListener('click', () => {
-      gsap.to(window, {
-        duration: .2,
-        scrollTo: { y: 0 },
-        //ease: 'power2.out'
-      });
-    });
-  }
-
-  if (applyBtn && footer) {
-    const updateApplyPosition = () => {
-      const applyHeight = applyBtn.offsetHeight;
-      const footerRect = footer.getBoundingClientRect();
-      const footerTop = footerRect.top + window.scrollY;
-      const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const windowBottom = scrollY + windowHeight;
-  
-      if (windowBottom > footerTop) {
-        const offset = windowBottom - footerTop;
-        gsap.set(applyBtn, {
-          position: 'absolute',
-          bottom: 'auto',
-          top: `${footerTop - applyHeight - 16}px`, // footer 위 16px
-        });
-      } else {
-        gsap.set(applyBtn, {
-          position: 'fixed',
-          top: 'auto',
-          bottom: '1.5rem'
-        });
-      }
-    };
-  
-    // 최초 설정
-    //updateApplyPosition();
-  
-    // 스크롤/리사이즈 반응
-    //window.addEventListener('scroll', updateApplyPosition);
-    //window.addEventListener('resize', updateApplyPosition);
-  
-    // ScrollTrigger의 업데이트 주기에 위치 갱신
-    //ScrollTrigger.addEventListener('refresh', updateApplyPosition);
-    //ScrollTrigger.refresh();
-  }
-  
+    }
+    
+    // // Checkbox change event
+    // const checkboxes = document.querySelectorAll('.product-checkbox');
+    // checkboxes.forEach(checkbox => {
+    //     checkbox.addEventListener('change', updateTotalPrice);
+    // });
+    
+    // // Initialize total price
+    // updateTotalPrice();
 });
-
-// 팝업(모달) 열기/닫기 기능
-const modal = document.getElementById('customModal');
-const modalClose = document.getElementById('customModalClose');
-const modalBackdrop = modal?.querySelector('.custom-modal__backdrop');
-const detailsBtns = document.querySelectorAll('.details');
-const mobileDetailsBtns = document.querySelectorAll('.session-detail-time');
-function openModal() {
-  modal.classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-function closeModal() {
-  modal.classList.remove('active');
-  document.body.style.overflow = '';
-}
-
-mobileDetailsBtns.forEach(btn => {
-  if(window.innerWidth < 1024){
-    btn.addEventListener('click', openModal);
-  }
-});
-
-detailsBtns.forEach(btn => {
-  btn.addEventListener('click', openModal);
-});
-modalClose?.addEventListener('click', closeModal);
-modalBackdrop?.addEventListener('click', closeModal);
 
 

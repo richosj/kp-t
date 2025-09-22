@@ -1,19 +1,39 @@
+<!-- @pageTitle 로그인 -->
+<!-- @pageCreated 2025-07-19 -->
+<!-- @pageUpdated 2025-07-19 -->
+<!-- @pageNote 배경 자동확장 -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=1200">
-    <title>KP&T Technology - Log-in</title>
+    <title>KP&T Technology</title>
+    <link rel="stylesheet" as="style" href="./font/pretendard-gov-subset.css" />
 </head>
 <body>
-    <div id="wrap">
-        <div class="login-wrap">
-            <div class="login-box">
-                <div class="login-box-inner">
-                    
+    
+    <div class="login-wrap">
+        <div class="login-box">
+            <div class="login-title">
+                <div class="login-title-text">
+                    <h1><img src="./assets/images/login-logo.png" alt="KP&T Technology"></h1>
+                </div>
+                <div class="login-title-desc">비밀번호 연속 5회 오류시 로그인 이용이 제한됩니다.</div>
+            </div>
+            <div class="login-form">
+                <div class="form-item">
+                    <input type="text" class="input" placeholder="아이디">
+                </div>
+                <div class="form-item">
+                    <input type="password" class="input" placeholder="비밀번호">
+                </div>
+                <div class="form-item">
+                    <button type="submit" class="btn-login">Log in</button>
                 </div>
             </div>
         </div>
     </div>
+    
+    <script type="module" src="./js/main.js"></script>
 </body>
 </html>

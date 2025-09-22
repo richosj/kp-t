@@ -1,0 +1,311 @@
+<!-- @pageTitle 메인 -->
+<!-- @pageCreated 2025-07-19 -->
+<!-- @pageUpdated 2025-07-19 -->
+<!-- @pageNote 상단 고정 -->
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1200">
+    <title>KP&T Technology</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- jQuery UI CSS -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <!-- jQuery UI JS -->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <link rel="stylesheet" as="style" href="./font/pretendard-gov-subset.css" />
+    <link rel="stylesheet" href="./scss/main.scss" />
+</head>
+
+<body>
+
+    <div id="wrap">
+        {{> header}}
+
+        <div class="main-wrap">
+            <nav class="main-nav">
+                <ul>
+                    <li class="current"><a href="#">구매관리</a></li>
+                    <li><a href="#">발주관리</a></li>
+                    <li><a href="#">제고관리</a></li>
+                    <li><a href="#">기기벨리데이션</a></li>
+                </ul>
+            </nav>
+            <!-- //main-nav -->
+            <div class="main-content">
+                <div class="column-wrap">
+                    <div class="column main-column-1">
+                        <div class="search-section-flex">
+                            <h3>발주년월</h3>
+                            <div class="search-input-group">
+                                <input type="text" placeholder="YYYY-MM" class="date-input datepicker">
+                                <button class="search-btn">
+                                    <i><img src="./assets/images/ico-search.png" alt=""></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="order-history">
+                            <table class="order-table">
+                                <thead>
+                                    <tr>
+                                        <th>발주번호</th>
+                                        <th>고객분류</th>
+                                        <th>발주일자</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>2506-D-0002</td>
+                                        <td>임상병리</td>
+                                        <td>2024-10-05</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2506-D-0002</td>
+                                        <td>임상병리</td>
+                                        <td>2024-10-05</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2506-D-0002</td>
+                                        <td>임상병리</td>
+                                        <td>2024-10-05</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- //main-column-1 -->
+                    <div class="column main-column-2">
+                        <div class="product-order-header">
+                            <h3>상품주문</h3>
+                            <button class="product-search-btn btn-outline-primary">상품검색</button>
+                        </div>
+
+                        <div class="product-list">
+                            <table class="product-table">
+                                <thead>
+                                    <tr>
+                                        <th width="50">선택</th>
+                                        <th>상품정보</th>
+                                        <th width="120">수량</th>
+                                        <th width="120">상품금액</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <label class="label-checkbox2">
+                                                <input type="checkbox" class="product-checkbox" checked>
+                                                <span></span>
+                                            </label>
+                                        </td>
+                                        <td class="product-info">
+                                            <div class="product-name">Bim Antibody (H-5)</div>
+                                            <div class="product-details">
+                                                카테고리: 기기/임상병리 규격: 200 단위:ea<br>
+                                                제품번호: cau-526 CasNo:SC-374358
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="quantity-control">
+                                                <button class="qty-btn minus">-</button>
+                                                <input type="text" value="2" class="qty-input">
+                                                <button class="qty-btn plus">+</button>
+                                            </div>
+                                        </td>
+                                        <td class="product-price">1,016,000원</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="label-checkbox2">
+                                                <input type="checkbox" class="product-checkbox" checked>
+                                                <span></span>
+                                            </label>
+                                        </td>
+                                        <td class="product-info">
+                                            <div class="product-name">Bim Polyclonal antibody</div>
+                                            <div class="product-details">
+                                                카테고리: 기기/임상병리 규격: 200 단위:ea<br>
+                                                제품번호: cau-526 CasNo:SC-374358
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="quantity-control">
+                                                <button class="qty-btn minus">-</button>
+                                                <input type="text" value="2" class="qty-input">
+                                                <button class="qty-btn plus">+</button>
+                                            </div>
+                                        </td>
+                                        <td class="product-price">722,000원</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="order-summary">
+                            <div class="summary-item">
+                                <span>총 상품수 <span class="total-count">2</span>개</span>
+                            </div>
+                            <div class="summary-item total">
+                                <span>총 상품금액 <strong class="total-amount">1,230,000</strong>원</span>
+                            </div>
+                        </div>
+
+                        <div class="purchase-guide">
+                            <h4>구매안내</h4>
+                            <div class="process-flow">
+                                <div class="process-step">
+                                    <div class="step-icon">
+                                        <img src="./assets/images/st1.png" alt="">
+                                    </div>
+                                    <span>상품검색</span>
+                                </div>
+                                <div class="process-step">
+                                    <div class="step-icon">
+                                        <img src="./assets/images/st2.png" alt="">
+                                    </div>
+                                    <span>주문요청</span>
+                                </div>
+                                <div class="process-step">
+                                    <div class="step-icon">
+                                        <img src="./assets/images/st3.png" alt="">
+                                    </div>
+                                    <span>견적요청</span>
+                                </div>
+                                <div class="process-step">
+                                    <div class="step-icon">
+                                        <img src="./assets/images/st4.png" alt="">
+                                    </div>
+                                    <span>발주요청</span>
+                                </div>
+                                <div class="process-step">
+                                    <div class="step-icon">
+                                        <img src="./assets/images/st5.png" alt="">
+                                    </div>
+                                    <span>납품중</span>
+                                </div>
+                                <div class="process-step">
+                                    <div class="step-icon">
+                                        <img src="./assets/images/st6.png" alt="">
+                                    </div>
+                                    <span>납품완료</span>
+                                </div>
+                                <div class="process-step">
+                                    <div class="step-icon">
+                                        <img src="./assets/images/st7.png" alt="">
+                                    </div>
+                                    <span>인고완료</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="purchase-process">
+                            <h4>구매 프로세스</h4>
+                            <ol class="process-list">
+                                <li>1. 상품주문은 선불결제 방식으로 진행됩니다.</li>
+                                <li>2. 상품주문후 발주관리 메뉴에서 견적 요청하시면, KP&T로 견적이 접수됩니다.</li>
+                                <li>3. 구매자는 견적서 확인 후 발주 요청하면 KP&로 주문내역이 접수됩니다.</li>
+                                <li>4. KP&T의 발주확인 및 발주승인 처리 후 배송이 시작됩니다.</li>
+                            </ol>
+                        </div>
+
+                        <div class="order-actions">
+                            <button class="btn-order">주문하기</button>
+                            <button class="btn-search">상품검색</button>
+                        </div>
+                    </div>
+                    <div class="column main-column-3">
+                        <h3><i class="ico-cart"></i>구매 진행상황</h3>
+
+                        <div class="progress-sections">
+                            <div class="progress-section">
+                                <div class="section-header">
+                                    <h4>견적요청</h4>
+                                </div>
+                                <div class="section-content">
+                                    <div class="progress-item expanded">
+                                        <div class="item-header">
+                                            <span class="item-number">202506-B0001</span>
+                                        </div>
+                                        <div class="item-details">
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th>고객분류</th>
+                                                        <th>주문요청일자</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>임상병리</td>
+                                                        <td>2024-12-05</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="progress-item collapsed">
+                                        <div class="item-header">
+                                            <span class="item-number">202506-B0002</span>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="progress-section">
+                                <div class="section-header bg2">
+                                    <h4>접수등록</h4>
+                                </div>
+                                <div class="section-content">
+                                    <div class="progress-item collapsed">
+                                        <div class="item-header">
+                                            <span class="item-number">202506-B0001</span>
+                                            
+                                        </div>
+                                        <div class="item-details">
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="progress-item collapsed">
+                                        <div class="item-header">
+                                            <span class="item-number">202506-B0002</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="progress-section">
+                                <div class="section-header bg3">
+                                    <h4>미승인</h4>
+                                </div>
+                                <div class="section-content">
+                                    <div class="progress-item collapsed">
+                                        <div class="item-header">
+                                            <span class="item-number">202506-B0001</span>
+                                        </div>
+                                        <div class="item-details">
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="progress-item collapsed">
+                                        <div class="item-header">
+                                            <span class="item-number">202506-B0002</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- //wrap -->
+
+    <script type="module" src="./js/main.js"></script>
+</body>
+
+</html>

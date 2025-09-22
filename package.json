@@ -1,5 +1,5 @@
 {
-  "name": "kp&t",
+  "name": "kp-t",
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",
@@ -8,9 +8,11 @@
     "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
-    "vite": "^5.0.0",
-    "vite-plugin-handlebars": "^2.0.0",
+    "@vituum/vite-plugin-handlebars": "^1.1.0",
+    "@yoichiro/vite-plugin-handlebars": "^1.4.0",
+    "gh-pages": "^6.0.0",
     "sass": "^1.70.0",
-    "gh-pages": "^6.0.0"
+    "vite": "^7.0.5",
+    "vite-plugin-handlebars": "^1.5.0"
   }
 }

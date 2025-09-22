@@ -1,0 +1,168 @@
+// Header Styles
+body{
+    background-color: rgba(236, 246, 255, 1);
+}
+.header {
+  background: #fff;
+  height: 124px;
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    //padding: 1rem 2rem;
+    width: var(--container);
+    margin: 0 auto;
+    height: 100%;
+  }
+  
+  .header-logo {
+    a {
+      display: block;
+      width: 120px;
+      height: 40px;
+      background: url('@/assets/images/logo.png') no-repeat center;
+      background-size: contain;
+    }
+  }
+  
+  .header-content {
+    flex: 1;
+    margin-left: 11rem;
+  }
+}
+
+// User Info Bar
+.user-info-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  height: 62px;
+  padding: 10px 15px;
+  padding-right: 0;
+  background: #fff;
+  
+  border-radius: 5px;
+  box-shadow: 1px 3px 4px 0px rgba(124, 124, 124, 0.2);
+  border: 1px solid rgba(126, 126, 126, 0.5);
+  
+  .user-info-item {
+    display: flex;
+    align-items: center;
+    gap: 0 5px;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(71, 71, 71, 1);
+    
+    i {
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    
+    .icon-user {
+      background-image: url("@/assets/images/icon-user.png");
+    }
+    
+    .icon-document {
+      background-image: url("@/assets/images/icon-document.png");
+    }
+    
+    .icon-calendar {
+      width: 18px;
+      height: 18px;
+      background-image: url("@/assets/images/icon-calendar.png");
+    }
+    
+    .icon-clipboard {
+      width: 15px;
+      height: 16px;
+      background-image: url("@/assets/images/icon-clipboard.png");
+    }
+    
+    .icon-cart {
+      width: 13px;
+      height: 13px;
+      background-image: url("@/assets/images/icon-cart.png");
+    }
+    
+    .icon-logout {
+      width: 12px;
+      height: 12px;
+      background-image: url("@/assets/images/icon-logout.png");
+    }
+    
+    .link-blue {
+      color: rgba(70, 150, 255, 1);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+    
+    }
+    
+    .link-logout {
+      font-size: 13px;
+    }
+  }
+}
+
+.main-nav{
+    margin: 2.2rem auto 2.9rem;
+    width: 66rem;
+    background-color: rgba(216, 232, 246, 1);
+    border-radius:5px;
+    padding: 0 5rem;
+    ul{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        li{
+            a{
+                display: block;
+                padding: 1.1rem 0;
+                font-weight: 600;
+                font-size: 18px;
+                color: rgba(0, 0, 0, 1);
+            }
+            &.current{
+                a{
+                    font-weight: 700;
+                    color: rgba(16, 70, 170, 1);
+
+                }
+            }
+        }
+    }
+}
+
+.main-content{
+    width: var(--container);
+    margin: 0 auto;
+}
+.column-wrap{
+    display: flex;
+    gap:0 18px;
+}
+.column{
+    border-radius: 10px;
+    padding: 20px 15px;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 1px 3px 4px 0px rgba(124, 124, 124, 0.25);
+}
+.main-column-1{
+    width: 308px;
+    height: 896px;
+}
+.main-column-2{
+    width: 660px;
+    height: 896px;
+    padding: 30px 15px;
+}
+.main-column-3{
+    width: 198px;
+    height: 896px;
+    padding: 20px 15px;
+}

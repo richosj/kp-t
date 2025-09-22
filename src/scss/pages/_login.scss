@@ -1,8 +1,84 @@
+html,
+body{width: 100%; height: 100%;}
 body:has(.login-wrap){
     width: 100%;
     height: 100%;
     background: url('@/assets/images/login-bg.png') no-repeat center center / cover;
 }
 .login{
-
+    &-wrap{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+    }
+    &-box{
+        display: flex;
+        justify-content: center;
+        //align-items: center;
+        background: linear-gradient(270deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.015) 100%);
+        backdrop-filter: blur(11px);
+        width: 1073px;
+        height: 390px;
+        padding: 86px 100px 0;
+        gap: 0 6rem;
+    }
+    &-title{
+        padding-top: 20px;
+        
+        &-desc{color: #fff;margin-top: 4rem;
+            margin-left: 1rem;
+            position: relative;
+            font-size: 2rem;
+            font-weight: 500;
+            line-height: 1;
+            padding-left: 2rem;
+            &::before{
+                content: '';
+                position: absolute;
+                top: 6px;
+                left: 0;
+                width: 6px;
+                height: 6px;
+                background: #fff;
+                border-radius: 50%;
+            }
+        }
+    }
+    &-form{
+        width: 360px;
+        .form-item{
+            margin-bottom: 20px;
+        }
+    }
+}
+.input{
+    background-color: #fff;
+    width: 100%;
+    height: 56px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 0 16px;
+    font-size: 16px;
+    color: #000;
+    border-radius: 3px;
+    font-weight: 500;
+    font-size: 20px;
+    &::placeholder{
+        color: rgba(187, 187, 187, 1);
+    }
+}
+.btn-login{
+    background: rgba(0, 64, 151, 1);
+    color: #fff;
+    width: 100%;
+    height: 65px;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 26px;
+    transition: background 0.3s ease;
+    &:hover{
+        background: rgba(0, 64, 151, 0.8);
+    }
 }
